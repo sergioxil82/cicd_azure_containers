@@ -47,7 +47,7 @@ jobs:
           registryPassword: ${{ secrets.MSREGISTRYAPI_REGISTRY_PASSWORD }}
           containerAppName: msregistryapi
           resourceGroup: ContainerApps
-          imageToBuild: sergioxil82/msregistryapi:${{ github.sha }}
+          imageToBuild: sergioxil82/ms.registry.api:${{ github.sha }}
           _buildArgumentsKey_: |
             _buildArgumentsValues_
 
