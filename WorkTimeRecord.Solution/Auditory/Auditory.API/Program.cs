@@ -28,9 +28,9 @@ builder.Services.AddCarter();
 // Configura CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
+    options.AddPolicy("AllowAll",
         policy => policy
-            .WithOrigins("http://localhost:5100")
+            .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
@@ -45,7 +45,7 @@ app.UseSwaggerUI(c =>
 });
 
 // Usa la política de CORS
-app.UseCors("AllowFrontend");
+app.UseCors("AllowAll");
 
 // Buscar Rutas de Carter
 app.MapCarter(); // Busca las rutas de definidas pos las implementaciones de ICarterModule

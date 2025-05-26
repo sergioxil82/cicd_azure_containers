@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen(swagger =>
     swagger.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo() 
     { 
         Title = "Registry API", 
-        Description = "API para el último registro de horario de cada empleado",
+        Description = "API para el último registro de horario de cada empleado con CICD",
         Version = "v1" });    
 });
 
@@ -39,9 +39,9 @@ builder.Services.AddDbContext<RegistryPostgresContext>(options =>
 // Configura CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend",
+    options.AddPolicy("AllowAll",
         policy => policy
-            .WithOrigins("http://localhost:5100")
+            .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod());
 });
@@ -54,7 +54,7 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>c.SwaggerEndpoint("/swagger/v1/swagger.json", "Registry API v1"));
 
 // Usa la política de CORS
-app.UseCors("AllowFrontend");
+app.UseCors("AllowAll");
 
 // Buscar rutas
 app.MapCarter();
