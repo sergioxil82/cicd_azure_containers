@@ -7,7 +7,7 @@ on:
     branches: 
       [ main ]
     paths:
-    - '**'
+    - 'WorkTimeRecord.Solution/Registry/Registry.API/**'
     - '.github/workflows/msregistryapi-AutoDeployTrigger-be353925-b88f-4a6c-967e-4937f9239114.yml'
 
   # Allow manual trigger 
